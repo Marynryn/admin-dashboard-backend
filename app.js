@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import contactsRouter from "./routes/contactsRouter.js";
 import dotenv from "dotenv";
 import userRouter from "./routes/userRouter.js";
+import dashboardRouter from "./routes/dashboardRouter.js";
 
 dotenv.config();
 
@@ -24,8 +25,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("tmp"));
 
-app.use("/api/contacts", contactsRouter);
-app.use("/api/users", userRouter);
+app.use("/api/dashboard", dashboardRouter);
+// app.use("/api/users", userRouter);
+// app.use("/api/customers", customersRouter);
+// app.use("/api/products", productsRouter);
+// app.use("/api/suppliers", suppliersRouter);
+// app.use("/api/orders", ordersRouter);
 
 app.use((_, res) => {
   res.status(404).json({ message: "Route not found" });

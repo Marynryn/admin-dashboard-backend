@@ -1,5 +1,5 @@
 {
-  "name": "goit-node-rest-api",
+  "name": "admin-dashboard-backend",
   "scripts": {
     "start": "node ./app.js",
     "dev": "nodemon ./app.js"
