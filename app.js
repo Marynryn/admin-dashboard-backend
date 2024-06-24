@@ -26,8 +26,8 @@ app.use(express.json());
 app.use(express.static("tmp"));
 
 app.use("/api/dashboard", dashboardRouter);
-// app.use("/api/users", userRouter);
-// app.use("/api/customers", customersRouter);
+app.use("/api/user", userRouter);
+app.use("/api/customers", customersRouter);
 // app.use("/api/products", productsRouter);
 // app.use("/api/suppliers", suppliersRouter);
 // app.use("/api/orders", ordersRouter);

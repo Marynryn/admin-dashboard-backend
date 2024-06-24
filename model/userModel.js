@@ -17,24 +17,14 @@ const userSchema = new Schema(
       required: [true, "Email is required"],
       unique: true,
     },
-    subscription: {
+    role: {
       type: String,
-      enum: ["starter", "pro", "business"],
-      default: "starter",
+      enum: ["user", "admin"],
+      default: "admin",
     },
     token: {
       type: String,
       default: null,
-    },
-    avatarURL: { type: String },
-    verify: {
-      type: Boolean,
-      default: false,
-    },
-    verificationToken: {
-      type: String,
-      default: "",
-      required: [true, "Verify token is required"],
     },
   },
   { versionKey: false }
@@ -46,7 +36,6 @@ userSchema.methods.checkPassword = (candidate, passwordHash) =>
   compare(candidate, passwordHash);
 userSchema.methods.hashEmail = async function () {
   const hashEmail = crypto.createHash("md5").update(this.email).digest("hex");
-  this.avatarURL = `https://www.gravatar.com/avatar/${hashEmail}.jpeg?d=identicon`;
 };
 const User = model("user", userSchema, "users");
 
