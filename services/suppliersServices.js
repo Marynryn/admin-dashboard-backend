@@ -13,4 +13,4 @@ export const checkSupplierExists = async (filter, throwError = true) => {
 };
 export const createSupplier = (body) => Supplier.create(body);
 export const update = (id, body) =>
-  Supplier.findOneAndUpdate(id, body, { new: true });
+  Supplier.findOneAndUpdate({ _id: id }, body, { new: true });

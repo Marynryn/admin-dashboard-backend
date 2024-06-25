@@ -21,7 +21,7 @@ export const addNewSupplier = catchAsync(async (req, res) => {
   }
 });
 export const updateSupplier = catchAsync(async (req, res) => {
-  const supplier = await update(req.params.id, req.body, {
+  const supplier = await update(req.params.supplierId, req.body, {
     new: true,
   });
   if (!supplier) {

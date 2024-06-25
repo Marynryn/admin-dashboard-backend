@@ -9,6 +9,7 @@ import {
   validateCreateSupplier,
   validateUpdateSupplier,
 } from "../helpers/validateBody.js";
+import { isSupplierIdValid } from "../middlewares/index.js";
 
 const suppliersRouter = express.Router();
 suppliersRouter.use(protect);
@@ -16,7 +17,7 @@ suppliersRouter.get("/", getAllSuppliers);
 suppliersRouter.post("/", validateCreateSupplier, addNewSupplier);
 suppliersRouter.put(
   "/:supplierId",
-
+  isSupplierIdValid,
   validateUpdateSupplier,
   updateSupplier
 );

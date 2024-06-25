@@ -1,5 +1,9 @@
 import HttpError from "../helpers/HttpError.js";
 import {
+  createProductSchema,
+  updateProductSchema,
+} from "../schemas/productSchema.js";
+import {
   createSupplierSchema,
   updateSupplierSchema,
 } from "../schemas/suppliersSchema.js";
@@ -22,3 +26,5 @@ export const validateCreateUserBody = validateBody(createUserSchema);
 export const validateLoginUserBody = validateBody(LoginUserSchema);
 export const validateCreateSupplier = validateBody(createSupplierSchema);
 export const validateUpdateSupplier = validateBody(updateSupplierSchema);
+export const validateCreateProduct = validateBody(createProductSchema);
+export const validateUpdateProduct = validateBody(updateProductSchema);

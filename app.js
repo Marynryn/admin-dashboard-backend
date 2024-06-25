@@ -9,6 +9,7 @@ import dashboardRouter from "./routes/dashboardRouter.js";
 import customersRouter from "./routes/customersRouter.js";
 import ordersRouter from "./routes/ordersRouter.js";
 import suppliersRouter from "./routes/suppliersRouter.js";
+import productsRouter from "./routes/productsRouter.js";
 
 dotenv.config();
 
@@ -31,7 +32,7 @@ app.use(express.static("tmp"));
 app.use("/api/dashboard", dashboardRouter);
 app.use("/api/user", userRouter);
 app.use("/api/customers", customersRouter);
-// app.use("/api/products", productsRouter);
+app.use("/api/products", productsRouter);
 app.use("/api/suppliers", suppliersRouter);
 app.use("/api/orders", ordersRouter);
 
