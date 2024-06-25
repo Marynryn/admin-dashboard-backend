@@ -9,3 +9,11 @@ export const isIdValid = (req, res, next) => {
   }
   next();
 };
+export const isCustomerIdValid = (req, res, next) => {
+  const { customerId } = req.params;
+  console.log(customerId);
+  if (!isValidObjectId(customerId)) {
+    next(HttpError(400, `${customerId} is not valid id`));
+  }
+  next();
+};

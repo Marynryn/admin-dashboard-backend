@@ -7,12 +7,11 @@ export const signToken = (id) =>
   });
 
 export const checkToken = (token) => {
-  console.log(token);
   if (!token) throw HttpError(401, "Not authorized in..");
 
   try {
     const { id } = jwt.verify(token, process.env.SECRET);
-    console.log(id);
+
     return id;
   } catch (err) {
     throw HttpError(401, "Not authorized  5");

@@ -40,7 +40,7 @@ export const logout = catchAsync(async (req, res) => {
   const token =
     req.headers.authorization?.startsWith("Bearer ") &&
     req.headers.authorization.split(" ")[1];
-  console.log(token);
+
   await userService.logout(token);
   res.status(204).send();
 });
