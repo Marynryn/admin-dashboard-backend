@@ -7,6 +7,12 @@ import {
 } from "../services/suppliersServices.js";
 
 export const getAllSuppliers = catchAsync(async (req, res) => {
+
+  const { name } = req.query;
+  const filterQuery = {};
+  if (name) {
+    filterQuery.name = { $regex: new RegExp(name, "i") };
+  }
   const suppliers = await fetchSuppliers();
   res.status(200).json(suppliers);
 });
