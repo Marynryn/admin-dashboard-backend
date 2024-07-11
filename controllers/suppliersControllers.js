@@ -13,7 +13,7 @@ export const getAllSuppliers = catchAsync(async (req, res) => {
   if (name) {
     filterQuery.name = { $regex: new RegExp(name, "i") };
   }
-  const suppliers = await fetchSuppliers();
+  const suppliers = await fetchSuppliers(filterQuery);
   res.status(200).json(suppliers);
 });
 export const addNewSupplier = catchAsync(async (req, res) => {
