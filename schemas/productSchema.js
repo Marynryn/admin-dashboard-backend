@@ -1,7 +1,7 @@
 import Joi from "joi";
 
 export const createProductSchema = Joi.object({
-  photo: Joi.string().required(),
+  photo: Joi.string(),
   name: Joi.string().required(),
   suppliers: Joi.string().required(),
   stock: Joi.string().required(),
