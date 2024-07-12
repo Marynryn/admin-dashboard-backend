@@ -1,13 +1,7 @@
 import { Customer } from "../model/customersModel.js";
 
-export const fetchCustomers = async () => {
-  try {
-    const customers = await Customer.find();
-
-    return customers;
-  } catch (error) {
-    throw error;
-  }
+export const fetchCustomers = (filterQuery = {}) => {
+  return Customer.find(filterQuery);
 };
 export const fetchOneCustomer = async (id) => {
   try {
