@@ -5,7 +5,12 @@ import {
 } from "../services/customersServices.js";
 
 export const getAllCustomers = catchAsync(async (req, res) => {
-  const customers = await fetchCustomers();
+    const { name } = req.query;
+  const filterQuery = {};
+  if (name) {
+    filterQuery.name = { $regex: new RegExp(name, "i") };
+  }
+  const customers = await fetchCustomers(filterQuery);
   res.status(200).json(customers);
 });
 export const getOneCustomer = catchAsync(async (req, res) => {
